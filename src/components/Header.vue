@@ -35,7 +35,7 @@
                 <a @click="saveData">Save Data</a>
               </li>
               <li>
-                <a href="#">Load Data</a>
+                <a @click="loadData">Load Data</a>
               </li>
             </ul>
           </li>
@@ -52,14 +52,14 @@ export default {
     ...mapGetters(["funds", "stockPortfolio", "stocks"])
   },
   methods: {
-    ...mapActions(["randomizeStocks"]),
+    ...mapActions(["randomizeStocks", "loadData"]),
     saveData() {
       const data = {
         funds: this.funds,
         stockPortfolio: this.stockPortfolio,
         stocks: this.stocks
       };
-      console.dir(data);
+      this.$http.put("data.json", data);
     }
   },
   data() {

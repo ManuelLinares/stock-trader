@@ -8,7 +8,7 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-Vue.http.options.root = 'https://vuejs-test-e41f0.firebaseio.com/data'
+Vue.http.options.root = 'https://vuejs-test-e41f0.firebaseio.com/'
 
 const router = new VueRouter({
   mode: 'history',
