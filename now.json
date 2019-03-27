@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "name": "udemy-vue.js",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "index.html",
+      "use": "@now/static"
+    }
+  ],
+  "alias": "stocktrader.now.sh",
+  "public": true,
+  "routes": [
+    {
+      "src": "/(dist/.+)",
+      "headers": {
+        "cache-control": "max-age=31536000,immutable"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "public,max-age=0,must-revalidate"
+      },
+      "dest": "/index.html"
+    }
+  ]
+}
